@@ -2,9 +2,7 @@ const btn = document.querySelector('.btn');
 const areadata = document.querySelector('.areadata');
 const btndall = document.querySelector('.btndall');
 const ans = document.querySelector('.ans');
-const ansre = document.querySelector('.ansre');
-const frame = document.querySelector('.frame');
-let data = JSON.parse(localStorage.getItem('list'));
+let data = JSON.parse(localStorage.getItem('list')) || [];
 const body = document.body
 
 
@@ -22,7 +20,7 @@ btn.addEventListener('click',function(e){
       alert('請輸入有效數字');
       return
     }
-    if(e.target.nodeName == 'B'){
+    if(e.target.nodeName == 'BUTTON'){
       str+=`
       <p class="ans">看結果</p>
       <p class="ansre"></p>
@@ -45,8 +43,8 @@ btn.addEventListener('click',function(e){
       ${obj.result}
       <span class="wg">BMI</span> 
       </a>
-      <b class="ansre green_outframe wg">${obj.determination}
-      </b>
+      <button class="ansre green_outframe wg">${obj.determination}
+      </button>
       `
     }
     if(result >= 18.5 && result < 24){
@@ -56,8 +54,8 @@ btn.addEventListener('click',function(e){
       ${obj.result}
       <span class="wb">BMI</span> 
       </a>
-      <b class="ansre blue_outframe wb">${obj.determination}
-      </b>
+      <button class="ansre blue_outframe wb">${obj.determination}
+      </button>
       `
     }
     if(result >= 24 && result < 27){
@@ -67,8 +65,8 @@ btn.addEventListener('click',function(e){
       ${obj.result}
       <span class="wlo">BMI</span> 
       </a>
-      <b class="ansre lightorange_outframe wlo">${obj.determination}
-      </b>
+      <button class="ansre lightorange_outframe wlo">${obj.determination}
+      </button>
       `
     }
     if(result >= 27 && result < 30){
@@ -78,8 +76,8 @@ btn.addEventListener('click',function(e){
       ${obj.result}
       <span class="wdo">BMI</span> 
       </a>
-      <b class="ansre orange_outframe wdo">${obj.determination}
-      </b>
+      <button class="ansre orange_outframe wdo">${obj.determination}
+      </button>
       `
     }
     if(result >= 30 && result < 35){
@@ -89,8 +87,8 @@ btn.addEventListener('click',function(e){
       ${obj.result}
       <span class="wdo">BMI</span> 
       </a>
-      <b class="ansre orange_outframe wdo">${obj.determination}
-      </b>
+      <button class="ansre orange_outframe wdo">${obj.determination}
+      </button>
       `
     }
     if(result >= 35){
@@ -100,8 +98,8 @@ btn.addEventListener('click',function(e){
       ${obj.result}
       <span class="wr">BMI</span> 
       </a>
-      <b class="ansre red_outframe wr">${obj.determination}
-      </b>
+      <button class="ansre red_outframe wr">${obj.determination}
+      </button>
       `
     }
     btn.innerHTML = str
@@ -116,7 +114,7 @@ function updata(k){
     let today = `${day.getDate()}-${day.getMonth() + 1}-${day.getFullYear()}`
     let str = '';
     let len = k.length; 
-    for(i=0;i<len;i++){
+    for(let i=0;i<len;i++){
       if(k[i].determination == '過輕'){ str+=`
       <p class="tg"></p>
       <ul>
@@ -206,6 +204,6 @@ btndall.addEventListener('click',function(e){
 
 body.addEventListener('keydown',function(e){
   if(e.keyCode == 13){
-    document.querySelector('.ans').click();
+    ans.click();
   }
 })
