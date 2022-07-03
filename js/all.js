@@ -12,15 +12,15 @@ btn.addEventListener('click',function(e){
     let height = document.querySelector('.height').value;
     let weight = document.querySelector('.weight').value;
 
-    if(height == '' || weight ==''){
+    if(height === '' || weight ===''){
       alert('請輸入內容')
       return
     }
-    if(isNaN(height) == true || isNaN(weight) == true){
+    if(isNaN(height) === true || isNaN(weight) === true){
       alert('請輸入有效數字');
       return
     }
-    if(e.target.nodeName == 'BUTTON'){
+    if(e.target.nodeName === 'BUTTON'){
       str+=`
       <p class="ans">看結果</p>
       <p class="ansre"></p>
@@ -115,7 +115,7 @@ function updata(k){
     let str = '';
     let len = k.length; 
     for(let i=0;i<len;i++){
-      if(k[i].determination == '過輕'){ str+=`
+      if(k[i].determination === '過輕'){ str+=`
       <p class="tg"></p>
       <ul>
         <li>${k[i].determination}</li>
@@ -126,7 +126,7 @@ function updata(k){
       <img src="img/co.png" class='btnd' data-index=${i}>
       </ul>
       `}
-      if(k[i].determination == '理想'){ str+=`
+      if(k[i].determination === '理想'){ str+=`
       <p class="tb"></p>
       <ul>
         <li>${k[i].determination}</li>
@@ -137,7 +137,7 @@ function updata(k){
       <img src="img/co.png" class='btnd' data-index=${i}>
       </ul>
       `}
-      if(k[i].determination == '過重'){ str+=`
+      if(k[i].determination === '過重'){ str+=`
       <p class="tlo"></p>
       <ul>
         <li>${k[i].determination}</li>
@@ -148,7 +148,7 @@ function updata(k){
       <img src="img/co.png" class='btnd' data-index=${i}>
       </ul>
       `}
-      if(k[i].determination == '輕度肥胖'){ str+=`
+      if(k[i].determination === '輕度肥胖'){ str+=`
       <p class="to"></p>
       <ul>
         <li>${k[i].determination}</li>
@@ -159,7 +159,7 @@ function updata(k){
       <img src="img/co.png" class='btnd' data-index=${i}>
       </ul>
       `}
-      if(k[i].determination == '中度肥胖'){ str+=`
+      if(k[i].determination === '中度肥胖'){ str+=`
       <p class="to"></p>
       <ul>
         <li>${k[i].determination}</li>
@@ -170,7 +170,7 @@ function updata(k){
       <img src="img/co.png" class='btnd' data-index=${i}>
       </ul>
       `}
-      if(k[i].determination == '重度肥胖'){ str+=`
+      if(k[i].determination === '重度肥胖'){ str+=`
       <p class="tr"></p>
       <ul>
         <li>${k[i].determination}</li>
@@ -203,7 +203,7 @@ btndall.addEventListener('click',function(e){
 },false)
 
 body.addEventListener('keydown',function(e){
-  if(e.keyCode == 13){
+  if(e.keyCode === 13){
     ans.click();
   }
 })
